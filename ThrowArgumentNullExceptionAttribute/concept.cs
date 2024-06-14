@@ -3,14 +3,14 @@ public class NullCheckAttributeExample
 	public int Id { get; set; }
 
 	public string Argument { get; set; }
-	
+
 	public NullCheckAttributeExample(int id, [ThrowArgumentNullException] string argument)
 	{
 		// When ThrowArgumentNullExceptionAttribute is used on the parameter, it'll throw an exception if the parameter is null.
 		Id = id;
 		Argument = argument;
-    }
-	
+	}
+
 	public static NullCheckAttributeExample CreateNewInstance(int id, [ThrowArgumentNullException] string argument)
 	{
 		// Similarly for any method when ThrowArgumentNullExceptionAttribute is used on the parameter, it'll throw an exception if the parameter is null.
