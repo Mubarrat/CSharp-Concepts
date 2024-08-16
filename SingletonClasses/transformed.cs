@@ -1,6 +1,6 @@
 public class SingletonExampleClass
 {
-	private static readonly Lazy<SingletonExampleClass> _lazyInstance =
+    private static readonly Lazy<SingletonExampleClass> _lazyInstance =
         new Lazy<SingletonExampleClass>(() => new SingletonExampleClass(), true);
     
     private SingletonExampleClass()
@@ -11,5 +11,5 @@ public class SingletonExampleClass
         // Do work here.
     }
     
-	public static MySingleton Instance => _lazyInstance.Value;
+    public static MySingleton Instance => _lazyInstance.Value;
 }
