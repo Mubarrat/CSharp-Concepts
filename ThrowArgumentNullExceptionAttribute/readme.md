@@ -10,29 +10,11 @@ Here's a breakdown of the code (not directly implementable):
 
 ```csharp
 // Not directly supported by C#, but demonstrates the idea.
-public class ThrowArgumentNullExceptionAttribute : Attribute
-{
-}
-
-public class NullCheckAttributeExample
-{
-    public int Id { get; set; }
-    public string Argument { get; set; }
-
-    public NullCheckAttributeExample(int id, [ThrowArgumentNullException] string argument)
-    {
-        // Compiler would throw an exception here (not implemented).
-        Id = id;
-        Argument = argument;
-    }
-
-    public static NullCheckAttributeExample CreateNewInstance(int id, [ThrowArgumentNullException] string argument)
-    {
-        // Compiler would throw an exception here (not implemented).
-        return new NullCheckAttributeExample(id, argument);
-    }
-}
 ```
+
+https://github.com/Mubarrat/CSharp-Concepts/blob/866f798a65d290c7f619e6b75d3d4d9180346426/ThrowArgumentNullExceptionAttribute/ThrowArgumentNullExceptionAttribute.cs#L1-L5
+
+https://github.com/Mubarrat/CSharp-Concepts/blob/866f798a65d290c7f619e6b75d3d4d9180346426/ThrowArgumentNullExceptionAttribute/concept.cs#L1-L22
 
 **Explanation:**
 
@@ -46,26 +28,7 @@ public class NullCheckAttributeExample
 
 The `transformed.cs` file showcases an alternative approach achievable with the latest C# version:
 
-```csharp
-public class NullCheckAttributeExample
-{
-    public int Id { get; set; }
-    public string Argument { get; set; }
-
-    public NullCheckAttributeExample(int id, [ThrowArgumentNullException] string argument)
-    {
-        ArgumentNullException.ThrowIfNull(argument, nameof(argument)); // Leverage existing method
-        Id = id;
-        Argument = argument;
-    }
-
-    public static NullCheckAttributeExample CreateNewInstance(int id, [ThrowArgumentNullException] string argument)
-    {
-        ArgumentNullException.ThrowIfNull(argument, nameof(argument)); // Leverage existing method
-        return new NullCheckAttributeExample(id, argument);
-    }
-}
-```
+https://github.com/Mubarrat/CSharp-Concepts/blob/866f798a65d290c7f619e6b75d3d4d9180346426/ThrowArgumentNullExceptionAttribute/transformed.cs#L1-L21
 
 **Explanation:**
 
