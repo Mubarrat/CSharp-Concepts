@@ -6,17 +6,7 @@ This folder explores the Singleton design pattern, a common approach for ensurin
 
 The `concept.cs` file presents a conceptual representation of a Singleton class:
 
-```csharp
-public singleton class SingletonExampleClass // Conceptual (not a valid keyword)
-{
-    private SingletonExampleClass() // Private constructor to enforce single instance
-    {
-        // Do work here (optional)
-    }
-
-    // Access method would be placed elsewhere (e.g., static method)
-}
-```
+https://github.com/Mubarrat/CSharp-Concepts/blob/0d6bdaf5c34058c84d28a7384db1c7b7db5ec069/SingletonClasses/concept.cs#L1-L12
 
 **Explanation:**
 
@@ -32,25 +22,7 @@ This code highlights the core principles of a Singleton:
 
 The `transformed.cs` file demonstrates a practical implementation using the `Lazy<T>` class for thread-safe lazy initialization:
 
-```csharp
-public class SingletonExampleClass
-{
-    private static readonly Lazy<SingletonExampleClass> _lazyInstance =
-        new Lazy<SingletonExampleClass>(() => new SingletonExampleClass(), true);
-
-    private SingletonExampleClass()
-    {
-        if (_lazyInstance.IsValueCreated)
-        {
-            throw new InvalidOperationException("Singleton classes can only have one instance.");
-        }
-
-        // Do work here.
-    }
-
-    public static MySingleton Instance => _lazyInstance.Value;
-}
-```
+https://github.com/Mubarrat/CSharp-Concepts/blob/10435f9589f83f79ef08e7dadbb63f8d1b9a73e7/SingletonClasses/transformed.cs#L1-L15
 
 **Explanation:**
 
